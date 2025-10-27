@@ -19,13 +19,16 @@ char* StringReverseC(char* stringToReverse)
 
 	char* start = stringToReverse;
 
-	char* end = stringToReverse + stringSize - 1;
+	char* end = stringToReverse + stringSize - 1; // stringToReverse + stringSize = '\0'; stringToReverse + stringSize - 1 = actual end
 
 	while (start < end)
 	{
 		char temp = *start;
 		*start = *end;
 		*end = temp;
+
+		++start;
+		--end;
 	}
 
 	return stringToReverse;
@@ -34,5 +37,12 @@ char* StringReverseC(char* stringToReverse)
 
 int main()
 {
-	std::cout << "Hello World!\n";
+
+	char str[6] = {'H', 'e', 'l','l','o','\0'};
+	std::string hello = "Hello";
+
+	StringReverseC(str);
+
+	std::cout << str << std::endl;
+
 }
