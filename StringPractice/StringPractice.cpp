@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <cstring>
+#include <string>
+
 
 std::string StringReverseCpp(const std::string& stringToReverse)
 {
@@ -7,7 +9,7 @@ std::string StringReverseCpp(const std::string& stringToReverse)
 
 	for (int i = 0; i < stringToReverse.size(); ++i)
 	{
-		reverseString[i] = stringToReverse[stringToReverse.size() - i];
+		reverseString[i] = stringToReverse[stringToReverse.size() - 1 - i];
 	}
 
 	return reverseString;
@@ -38,11 +40,11 @@ char* StringReverseC(char* stringToReverse)
 int main()
 {
 
-	char str[6] = {'H', 'e', 'l','l','o','\0'};
-	std::string hello = "Hello";
+	std::cout << "Enter a string to reverse: ";
+	
+	std::string input = "";
 
-	StringReverseC(str);
+	std::getline(std::cin, input);
 
-	std::cout << str << std::endl;
-
+	std::cout << StringReverseCpp(input);
 }
