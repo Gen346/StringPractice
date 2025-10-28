@@ -50,6 +50,33 @@ std::string ToLower(const std::string& stringToLower)
 	}
 	return lowerString;
 }
+void PalindromeCheck(const std::string& palindromeToCheck)
+{
+	bool sameLetter = false;
+
+	for (int i = 0; i < palindromeToCheck.size() / 2; ++i)
+	{
+		if (palindromeToCheck[i] == palindromeToCheck[palindromeToCheck.size() - i - 1])
+		{
+			sameLetter = true;
+			continue;
+		}
+		else
+		{
+			sameLetter = false;
+			break;
+		}
+	}
+
+	if (sameLetter)
+	{
+		std::cout << "Word " << palindromeToCheck << " is palindrome.\n";
+	}
+	else
+	{
+		std::cout << "Word " << palindromeToCheck << " is not palindrome.\n";
+	}
+}
 
 char* StringReverseC(char* stringToReverse)
 {
@@ -75,7 +102,6 @@ char* StringReverseC(char* stringToReverse)
 
 int main()
 {
-
 	/*std::cout << "Enter a string to reverse: ";
 
 	std::string input = "";
@@ -89,8 +115,13 @@ int main()
 	std::getline(std::cin, input);
 	std::cout << ToUpper(input) << std::endl;*/
 
-	std::cout << "Enter a string to upper: ";
+	/*std::cout << "Enter a string to lower: ";
 	std::string input = " ";
 	std::getline(std::cin, input);
-	std::cout << ToLower(input) << std::endl;
+	std::cout << ToLower(input) << std::endl;*/
+
+	std::cout << "Enter a string to palindrome check: ";
+	std::string input = " ";
+	std::getline(std::cin, input);
+	PalindromeCheck(input);
 }
